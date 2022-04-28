@@ -12,6 +12,7 @@ namespace M05_UF3_P2_Template.Pages.Products
     {
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
+        public int helper_id;
 
         [BindProperty]
         public Product product { get; set; }
@@ -20,6 +21,7 @@ namespace M05_UF3_P2_Template.Pages.Products
             if(Id > 0)
             {
                 product = new Product(Id);
+                helper_id = (int)DatabaseManager.Select("Game", new string[] { "Id" }, "Product_Id = " + Id).Rows[0][0];
             }
         }
 

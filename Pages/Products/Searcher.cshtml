@@ -10,6 +10,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>Name</th>
             <th>Price</th>
             <th>Publishing</th>
@@ -23,6 +24,20 @@
         @foreach (Product item in Model.products)
         {
             <tr>
+                <td>
+                    @if (item.Type == Product.TYPE.Game)
+                    {
+                        <span class="material-icons">sports_esports</span>
+                    }
+                    else if (item.Type == Product.TYPE.Video)
+                    {
+                        <span class="material-icons">videocam</span>
+                    }
+                    else
+                    {
+                        <span class="material-icons">question_mark</span>
+                    }
+                </td>
                 <td>@item.Summary</td>
                 <td>@item.Price</td>
                 <td>@item.Publishing</td>
